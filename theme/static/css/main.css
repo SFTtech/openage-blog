@@ -1,9 +1,10 @@
 /*
 	Name: sftblog style
+	Adapted by: Jonas Jelten
 
+	Original author: Enrique Ramírez <http://enrique-ramirez.com/>
 	License: MIT <http://opensource.org/licenses/MIT>
 	Licensed by: Smashing Media GmbH <http://www.smashingmagazine.com/>
-	Original author: Enrique Ramírez <http://enrique-ramirez.com/>
 */
 
 /* Imports */
@@ -13,7 +14,7 @@
 /***** Global *****/
 /* Body */
 body {
-	background: #F5F4EF;
+	background: #D5D0D0;
 	color: #000305;
 	font-size: 87.5%;    /* Base font size: 14px */
 	font-family: Palatino, Georgia, serif;
@@ -44,16 +45,16 @@ hr { border: 2px solid #EEEEEE; }
 /* Anchors */
 a {outline: 0;}
 a img {border: 0px; text-decoration: none;}
+
 a:link, a:visited {
 	color: #C74350;
 	padding: 0 1px;
-	text-decoration: underline;
-}
-a:hover, a:active {
-	background-color: #C74350;
-	color: #fff;
 	text-decoration: none;
-	text-shadow: 1px 1px 1px #333;
+}
+
+a:hover, a:active {
+	color: #C00355;
+	text-decoration: underline;
 }
 
 h1 a:hover {
@@ -234,7 +235,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 #banner nav a:hover, #banner nav a:active,
 #banner nav .active a:link, #banner nav .active a:visited {
 	background: #C74451;
-	color: #fff;
+	color: #eee;
 	text-shadow: none !important;
 }
 
@@ -252,7 +253,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
-	width: 760px;
+	width: 70%;
+	min-width: 500px;
 
 	border-radius: 10px;
 }
@@ -306,7 +308,10 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	padding: .3em .25em;
 }
 
-#extras a:hover, #extras a:active {color: #fff;}
+#extras a:hover, #extras a:active {
+	color: #000;
+	text-decoration: underline;
+}
 
 /* Blogroll */
 #extras .blogroll {
