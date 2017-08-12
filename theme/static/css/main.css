@@ -14,7 +14,7 @@
 /***** Global *****/
 /* Body */
 body {
-	background: #D5D0D0;
+	background: rgb(238, 238, 238);
 	color: #000305;
 	font-size: 87.5%;    /* Base font size: 14px */
 	font-family: Palatino, Georgia, serif;
@@ -109,7 +109,6 @@ pre {
 	background-color:  rgb(238, 238, 238);
 	padding: 10px;
 	margin: 10px;
-	max-width: 800px;
 	overflow: auto;
 	white-space: pre-wrap;
 }
@@ -119,7 +118,6 @@ blockquote {
 	border-left:.5em solid #eee;
 	padding: 0 2em;
 	margin-left: 15px;
-	max-width: 476px;
 }
 
 blockquote cite {
@@ -134,7 +132,6 @@ blockquote cite:before {
 
 blockquote p {
 	color: #666;
-	max-width: 460px;
 }
 
 cite {}
@@ -145,7 +142,6 @@ div.note {
 	float: right;
 	margin: 5px;
 	font-size: 85%;
-	max-width: 300px;
 }
 
 code {
@@ -189,15 +185,20 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 #banner {
 	margin: 0 auto;
 	padding: 2.5em 0 0 0;
+	width: 70%;
 }
 
 /* Banner */
-#banner h1 {font-size: 3.571em; line-height: 0;}
+#banner h1 {
+	font-size: 3.571em;
+	line-height: 0;
+	margin-bottom: 0;
+}
 #banner h1 a:link, #banner h1 a:visited {
 	color: #000305;
 	display: block;
 	font-weight: bold;
-	margin: 0 0 .6em .2em;
+	margin: 0 0 .30em .2em;
 	text-decoration: none;
 }
 #banner h1 a:hover, #banner h1 a:active {
@@ -206,7 +207,16 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	text-shadow: none;
 }
 
-#banner h1 strong {font-size: 0.36em; font-weight: normal;}
+#banner img {
+	height: 1.4em;
+	vertical-align: middle;
+	transform: translate(0%, -5px);
+}
+
+#banner h1 strong {
+	font-size: 0.36em;
+	font-weight: normal;
+}
 
 /* Main Nav */
 #banner nav {
@@ -214,16 +224,22 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	font-size: 1.143em;
 	height: 40px;
 	line-height: 30px;
-	margin: 0 auto 2em auto;
+	margin: 0 auto 1.5em auto;
 	padding: 0;
 	text-align: center;
-	width: 800px;
-
 	border-radius: 5px;
 }
 
-#banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
-#banner nav li {float: left; display: inline; margin: 0;}
+#banner nav ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+#banner nav li {
+	float: left;
+	display: inline;
+	margin: 0;
+}
 
 #banner nav a:link, #banner nav a:visited {
 	color: #fff;
@@ -281,7 +297,6 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
-	width: 760px;
 
 	border-radius: 10px;
 }
