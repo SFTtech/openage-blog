@@ -91,9 +91,10 @@ li {
 }
 
 .post-info {
-	float:right;
-	margin:10px;
-	padding:5px;
+	float: right;
+	margin: 10px;
+	padding: 5px;
+	background-color: #EEEEEE;
 }
 
 .post-info p{
@@ -467,6 +468,7 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 	float: left;
 	top: 0.5em;
 	width: 190px;
+	margin-right: 2em;
 }
 
 /* About the Author */
