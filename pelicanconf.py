@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-AUTHOR = "' OR 1=1; DROP TABLE blogposts; --"
+AUTHOR = "anon"
 SITENAME = 'openage dev updates'
 SITEURL = ''
 
@@ -20,11 +20,12 @@ THEME = "theme/"
 
 LINKS = (
     ('openage', 'http://openage.sft.mx/'),
-    ('source code', 'https://github.com/SFTtech/openage/'),
     ('blog origin', 'https://github.com/SFTtech/openage-blog/'),
 )
 
-SOCIAL = ()
+SOCIAL = (
+    ('github', 'https://github.com/SFTtech/openage'),
+)
 
 DEFAULT_PAGINATION = 5
 DEFAULT_CATEGORY = "misc"
