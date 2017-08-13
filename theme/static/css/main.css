@@ -131,6 +131,7 @@ pre {
 
 .highlighttable td {
 	padding: 0px;
+	border: 0px;
 }
 
 .linenodiv pre {
@@ -139,6 +140,7 @@ pre {
 	text-align: right;
 
 	margin-right: 0px;
+	border-right: 0px;
 	padding-right: 4px;
 }
 
@@ -182,22 +184,33 @@ div.note {
 
 
 /* Tables */
-table {margin: .5em auto 1.5em auto; width: 98%;}
+table {
+	margin: .5em auto 1.5em auto;
+	display: inline;
+}
 
-	/* Thead */
-	thead th {padding: .5em .4em; text-align: left;}
+	thead th {
+		padding: .5em .4em;
+		text-align: left;
+		border: 1px solid #dfe2e5;
+	}
 	thead td {}
 
-	/* Tbody */
-	tbody td {padding: .5em .4em;}
 	tbody th {}
+	tbody td {
+		padding: .5em .4em;
+		border: 1px solid #dfe2e5;
+	}
 
-	tbody .alt td {}
+	table tbody tr:nth-child(odd) {
+		background-color: #F6F8FA;
+	}
+
 	tbody .alt th {}
+	tbody .alt td {}
 
-	/* Tfoot */
-	tfoot th {}
 	tfoot td {}
+	tfoot th {}
 
 /* HTML5 tags */
 header, section, footer,
