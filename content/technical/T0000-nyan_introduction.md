@@ -1,9 +1,14 @@
-Title: nyan API integration
+Title: T0: nyan API integration
 Date: 2017-08-13 10:20
 Category: technical
 Tags: nyan, API
 Authors: jj
 Summary: nyan will be used for as content interface in openage
+
+
+This is probably our zeroth technical information post,
+it may be informative to you if you want to follow development more closely.
+We'll post more things on an irregular basis :)
 
 
 # What's nyan?
