@@ -34,6 +34,14 @@
                     <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                 {% endfor %}
                 {% endif %}
+                {% for txt, lnk, img in EXTLINKS %}
+                    <li class="navextlink">
+                        <a href="{{ lnk }}">
+                            <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/{{ img }}"/>
+                            {{ txt }}
+                        </a>
+                    </li>
+                {% endfor %}
                 </ul></nav>
         </header><!-- /#banner -->
 

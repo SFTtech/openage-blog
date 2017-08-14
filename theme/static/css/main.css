@@ -269,7 +269,7 @@ img.left, figure.left {
 #banner img {
 	height: 1.4em;
 	vertical-align: middle;
-	transform: translate(0%, -5px);
+	transform: translate(0%, -2px);
 }
 
 #banner h1 strong {
@@ -298,6 +298,10 @@ img.left, figure.left {
 	float: left;
 	display: inline;
 	margin: 0;
+}
+
+#banner nav li.navextlink {
+	float: right;
 }
 
 #banner nav a:link, #banner nav a:visited {

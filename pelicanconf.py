@@ -15,14 +15,18 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+DISPLAY_PAGES_ON_MENU = False
 
 THEME = "theme/"
 
 LINKS = (
     ('openage', 'http://openage.sft.mx/'),
     ('blog origin', 'https://github.com/SFTtech/openage-blog/'),
-
 )
+
+EXTLINKS = [
+    ('source code', 'https://github.com/SFTtech/openage', 'images/github.svg'),
+]
 
 SOCIAL = (
     ('github', 'https://github.com/SFTtech/openage'),
