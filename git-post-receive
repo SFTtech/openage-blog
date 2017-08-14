@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+"""
+example post-receive hook, to be placed in the hooks/ folder
+of your bare repository.
+"""
+
+import os
+import tempfile
+from distutils.dir_util import copy_tree
+from subprocess import run
+
+DESTINATION_DIR = "/srv/http/blog.openage"
+
+
+def main():
+    """
+    Check out the repo in a tmpdir,
+    generate the content,
+    and replace the directory contents in DESTINATION_DIR.
+    """
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # check out the repo contents
+        os.environ.update({
+            "GIT_WORK_TREE": tmpdir,
+        })
+        run(['git', 'checkout', '-f'])
+
+        # go to work dir and generate the web content
+        os.chdir(tmpdir)
+
+        if not run(['make', 'publish']):
+            raise Exception("error generating content")
+
+        # remove the old files
+        os.chdir(DESTINATION_DIR)
+        run("rm -rf *", shell=True)  # yes, dirty, but a working oneliner.
+
+        # the shutil implementation is totally broken:
+        # it requires the destination path to not exist.
+        copy_tree(os.path.join(tmpdir, 'output/'), DESTINATION_DIR)
+
+
+if __name__ == "__main__":
+    main()
