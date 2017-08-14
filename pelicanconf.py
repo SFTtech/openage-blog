@@ -21,10 +21,12 @@ THEME = "theme/"
 LINKS = (
     ('openage', 'http://openage.sft.mx/'),
     ('blog origin', 'https://github.com/SFTtech/openage-blog/'),
+
 )
 
 SOCIAL = (
     ('github', 'https://github.com/SFTtech/openage'),
+    ('reddit', 'https://reddit.com/r/openage'),
 )
 
 DEFAULT_PAGINATION = 5
