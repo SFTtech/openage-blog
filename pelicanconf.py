@@ -39,6 +39,8 @@ EXTRA_PATH_METADATA = {
 }
 
 STATIC_PATHS = list(EXTRA_PATH_METADATA.keys())
+STATIC_PATHS += ['images']
+
 
 MARKDOWN = {
     'extension_configs': {
