@@ -394,7 +394,6 @@ img.left, figure.left {
 /* Blogroll */
 #extras .blogroll {
 	float: left;
-	width: 615px;
 }
 
 #extras .blogroll li {float: left; margin: 0 20px 0 0; width: 185px;}
@@ -402,11 +401,11 @@ img.left, figure.left {
 /* Social */
 #extras .social {
 	float: right;
-	width: 175px;
+	min-width: 150px;
 }
 
 #extras div[class='social'] a {
-	padding-left: 25px;
+	padding-left: 10px;
 }
 
 

@@ -53,8 +53,8 @@ it also | contains no content
 you may | have guessed this.
 but it  | looks pretty.
 
-And because sometimes you have non-code preformatted text for ascii-art,
-we do some `<pre>` feature.
+And because sometimes you have non-code preformatted text,
+we have a `<pre>` feature.
 
 <pre>
 This allows drawing
