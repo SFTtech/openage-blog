@@ -13,9 +13,9 @@ Angaben gem. § 5 TMG und § 55 II RstV:
 
 ```
 openage devteam (Jonas Jelten)
-c/o OpenLab Augsburg e.V.
-Elisenstr. 1
-86159 Augsburg
+c/o StuStaNet e.V.
+Hans-Leipelt-Straße 7
+80805 München
 ```
 
 Email: `jonas (dawt) jelten (at-zeichen) gmail (dawt) de`
