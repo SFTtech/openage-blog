@@ -20,7 +20,7 @@ to run [openage](https://github.com/SFTtech/openage).
 ## Replacement strategy
 
 The current simulation, which is implemented with a classic time step loop,
-will be replaced by the new event based system.
+will be replaced by the new event based game simulation system.
 
 The replacement will be done in several steps:
 
@@ -48,7 +48,12 @@ The pathfinding can remain very stupid (like our current implementation is),
 but in the future should be far more sophisticated.
 It should be quite easy to improve and extend.
 
-Sounds easy, right? Let's do it.
+Likewise, we have to add [many other abilities](https://github.com/SFTtech/openage/issues/816) to the new simulation.
+
+Once the demo is nearly as good as the current game,
+we just enable it as the new main function of the game.
+
+Sounds easy, right? Then let's do it.
 
 
 ## Questions
