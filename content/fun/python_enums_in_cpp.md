@@ -5,7 +5,7 @@ Tags: C++, templates
 Authors: zuntrax, mic-e, jj
 Summary: the fun journey of implementing proper enums in C++
 
-It has been proven over and over again that we suffer from a severe form of [NIH](https://en.wikipedia.org/wiki/Not_invented_here). Today, we tried to reinvent the wheel once again, but with rockets attached, and tackled the beauty of C++ by creating a *usable* enum implementation.
+It has been proven over and over again that we suffer from a severe form of [NIH](https://en.wikipedia.org/wiki/Not_invented_here). Today, we tried to reinvent the wheel once again, but with rockets attached, and tackled the beauty of C++17 by creating a *usable* enum implementation.
 
 
 The current `openage` enums sometimes produce linker errors on macOS and warnings on other systems:
@@ -96,7 +96,7 @@ struct EnumValueContainer {
 
 	// implicit conversion operator!
 	constexpr operator const DerivedType &() const {
-		return this->value;		
+		return this->value;
 	}
 
 	constexpr EnumValueContainer &operator =(const DerivedType &value) {
@@ -172,6 +172,7 @@ Thus, it is now possible to to this:
 ``` cpp
 LogLevel a = LogLevel::info;  // store a handle to the static constexpr member!
 a.foo();                      // call the enum "member" method!
+LogLevel::info.foo();         // same, but without the LogLevel wrapper!
 ```
 
 But why does that work?
@@ -226,6 +227,7 @@ int main() {
 }
 ```
 
+Mind that all this **only works with C++17**.
 
 <details>
  <summary>Here is the full code for our new enum (GPLv3 or later):</summary>
@@ -291,7 +293,7 @@ struct EnumValueContainer {
 	constexpr EnumValueContainer(const DerivedType &value) : value{value} {}
 
 	constexpr operator const DerivedType &() const {
-		return this->value;		
+		return this->value;
 	}
 
 	constexpr EnumValueContainer &operator =(const DerivedType &value) {
