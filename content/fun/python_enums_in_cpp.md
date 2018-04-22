@@ -168,7 +168,7 @@ struct LogLevel : EnumValueContainer<LogLevelValue>, LogLevelMethods<LogLevelVal
 };
 ```
 
-Thus, it is now possible to to this:
+Thus, it is now possible to do this:
 ``` cpp
 LogLevel a = LogLevel::info;  // store a handle to the static constexpr member!
 a.foo();                      // call the enum "member" method!
