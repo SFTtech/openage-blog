@@ -1,6 +1,5 @@
 Title: Stupid Test
 Date: 2017-08-12 00:01
-Category: fun
 
 This test is totally meaningless as it just is a test.
 It contains literally no information. Go away. No reason to continue reading.

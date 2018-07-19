@@ -1,6 +1,5 @@
 Title: D0: Openage modding API - Introduction
 Date: 2018-08-19
-Category: design
 Tags: nyan, modding, API
 Authors: heinezen
 Summary: a first draft of the openage mod API

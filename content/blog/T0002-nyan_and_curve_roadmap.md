@@ -1,6 +1,5 @@
 Title: T2: Curve and nyan roadmap
 Date: 2018-01-25
-Category: technical
 Tags: nyan, curves, API, roadmap
 Authors: jj
 Summary: our next steps for integrating the event driven gamesimulation configured by nyan into openage

@@ -1,6 +1,5 @@
 Title: T1: Curves logic
 Date: 2017-08-22
-Category: technical
 Tags: curves, API
 Authors: jw
 Summary: curves are simulation environment independent of discretisation

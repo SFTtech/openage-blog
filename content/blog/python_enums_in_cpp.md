@@ -1,6 +1,5 @@
 Title: Implementing Python-Style Enums in C++
 Date: 2018-04-21 23:01
-Category: fun
 Tags: C++, templates
 Authors: zuntrax, mic-e, jj
 Summary: the fun journey of implementing proper enums in C++
