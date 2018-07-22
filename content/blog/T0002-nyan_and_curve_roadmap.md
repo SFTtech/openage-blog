@@ -7,7 +7,7 @@ Summary: our next steps for integrating the event driven gamesimulation configur
 After a very long planning and development phase,
 two of our new core components are implemented:
 [nyan](https://github.com/SFTtech/nyan) and
-the [curves]({filename}/technical/T0001-curves_introduction.md).
+the [curves]({filename}/blog/T0001-curves_introduction.md).
 
 Both are designed to work together:
 `nyan` provides the configuration building blocks,
