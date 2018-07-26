@@ -82,7 +82,7 @@ We cannot use that strategy for openage as patching has the potential to severel
 
 # Questions?
 
-Tune in next week when we will explain how `GameEntity`s, the objects in the game world, are handled.
+[Next week]({filename}/blog/D0001-openage_mod_api_game_entity.md) we will explain how `GameEntity`s, the objects in the game world, are handled.
 
 Any more questions? Let us know and discuss those ideas by visiting [our subreddit /r/openage](https://reddit.com/r/openage)!
 
