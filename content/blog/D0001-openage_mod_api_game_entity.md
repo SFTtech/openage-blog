@@ -4,7 +4,7 @@ Tags: nyan, modding, API
 Authors: heinezen
 Summary: About the representation of game world objects
 
-[Last week]({filename}/D0000-openage_mod_api_intro.md) we explored the overall principles and design decision for our modding API. This time we will see how the definition of units, buildings and other visible objects in the game world will work.
+[Last week]({filename}/blog/D0000-openage_mod_api_intro.md) we explored the overall principles and design decision for our modding API. This time we will see how the definition of units, buildings and other visible objects in the game world will work.
 
 # GameEntity
 
@@ -20,7 +20,7 @@ Developers and modders should not let their objects inherit directly from `GameE
 
 ## Unit
 
-`Unit` is probably the most generic category. In general, all game entities that move, die, decay and have HP should be units. In the current API design, units are the only types of `GameEntity` that can be trained with the `Train` ability. 
+`Unit` is probably the most generic category. In general, all game entities that move, die, decay and have HP should be units. In the current API design, units are the only types of `GameEntity` that can be trained with the `Train` ability.
 
 Examples: military, villagers, animals
 
