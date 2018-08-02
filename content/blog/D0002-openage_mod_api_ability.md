@@ -14,7 +14,7 @@ Other articles in the modding API series:
 
 # The Ability API object
 
-![Ability examples](../images/D0002-abilities-overview.png)
+![Ability examples]({filename}/images/D0002-abilities-overview.png)
 
 Each `Ability` API object has two main purposes.
 
