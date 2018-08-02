@@ -22,23 +22,23 @@ Developers usually take the API first and then use it to derive special cases th
 
 ## API example
 
-![API example 1](../images/D0001-API-example-1.png)
+![API example 1]({filename}/images/D0001-API-example-1.png)
 
 In this example the engine has defined a function that lets a unit run around on a map and displays their name and HP when it is selected. The function takes a very simple API object called `Unit` as input. `Unit` objects must have the attributes `name` (as a text value) and `hp` (as an integer value), but the exact value of these attributes is up to the developer. By setting the value, the special cases are derived.
 
-![API example 2](../images/D0001-API-example-2.png)
+![API example 2]({filename}/images/D0001-API-example-2.png)
 
 The above diagram shows how units for a medieval game could be defined. A developer derived the three units `Swordsman`, `Spearman` and `Knight` from the generic API object `Unit` by assigning specific values to the attributes. The engine will handle all special cases like it will handle `Unit`, but takes their specific values into account. For example, if a `Knight` is selected, it will display *Knight* as the name and *120* as the HP.
 
 A developer with a different game in mind can also utilize the API to define completely different special cases.
 
-![API example 3](../images/D0001-API-example-3.png)
+![API example 3]({filename}/images/D0001-API-example-3.png)
 
 This would also be an viable use for the API when a developer wants to have a more modern setting in their game.
 
 You might wonder if the derived objects from the two games could be used simultaneously. The answer is yes, they can!
 
-![API example 4](../images/D0001-API-example-4.png)
+![API example 4]({filename}/images/D0001-API-example-4.png)
 
 In this API design the engine essentially does not care that the theme of the medieval and the modern units is vastly different. As long as they use the same API they can be used in any combination, even if it does not make much sense. For a modding community this kind of API design is a huge benefit because it is very easy to extend, replace and combine mods.
 
@@ -48,7 +48,7 @@ We will later see how the openage modding API handles things in a similar manner
 
 The UML diagram below shows the latest draft of our API and should be very close to what will be implemented in the next months.
 
-![API overview](../images/D0001-API-overview.png)
+![API overview]({filename}/images/D0001-API-overview.png)
 
 If you are familiar with Age of Empires 2, you most likely spotted some similarities between the game and our API objects. Although it draws inspiration from the game, modding in openage will be completely different from modding in AoE2. The openage modding API exposes much more features and should allow for very complex mods and a range of different styles of RTS gaming.
 
