@@ -4,7 +4,13 @@ Tags: nyan, modding, API
 Authors: heinezen
 Summary: About the representation of game world objects
 
-[Last week]({filename}/blog/D0000-openage_mod_api_intro.md) we explored the overall principles and design decision for our modding API. This time we will see how the definition of units, buildings and other visible objects in the game world will work.
+Last week we explored the overall principles and design decision for our modding API. This time we will see how the definition of units, buildings and other visible objects in the game world will work.
+
+Other articles in the modding API series:
+
+* [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
+* Units, Buildings & more (you're here)
+* [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 
 # GameEntity
 

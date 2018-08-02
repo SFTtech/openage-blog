@@ -4,7 +4,13 @@ Tags: nyan, modding, API
 Authors: heinezen
 Summary: a first draft of the openage mod API
 
-A while ago we [introduced](https://blog.openage.sft.mx/t0-nyan-api-integration.html) our game configuration database language nyan. Now we present our efforts to integrate nyan into openage and to create a powerful and extensible modding API.
+A while ago we [introduced]({filename}/blog/T0000-nyan_introduction.md) our game configuration database language nyan. Now we present our efforts to integrate nyan into openage and to create a powerful and extensible modding API.
+
+Other articles in the modding API series:
+
+* Introduction (you're here)
+* [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
+* [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 
 # What is an API?
 
