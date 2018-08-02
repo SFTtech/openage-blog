@@ -1,5 +1,5 @@
-Title: Openage modding API - Abilities
-Date: 2018-08-19
+Title: D2: Openage modding API - Abilities
+Date: 2018-08-02
 Tags: nyan, modding, API
 Authors: heinezen
 Summary: Abilities give units something to do
