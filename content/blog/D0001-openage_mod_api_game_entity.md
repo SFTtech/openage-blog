@@ -1,5 +1,5 @@
-Title: Openage modding API - Units, Buildings & more
-Date: 2018-08-26
+Title: D1: Openage modding API - Units, Buildings & more
+Date: 2018-07-26
 Tags: nyan, modding, API
 Authors: heinezen
 Summary: About the representation of game world objects
