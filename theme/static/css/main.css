@@ -230,6 +230,11 @@ aside, nav, article, figure {
 	min-width: 500px;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 img.right, figure.right {
 	float: right;
 	max-width: 100%;
