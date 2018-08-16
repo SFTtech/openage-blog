@@ -11,6 +11,7 @@ Other articles in the modding API series:
 * [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
 * Units, Buildings & more (you're here)
 * [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
+* [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
 
 # GameEntity
 
