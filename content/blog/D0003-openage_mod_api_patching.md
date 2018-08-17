@@ -4,7 +4,7 @@ Tags: nyan, modding, API
 Authors: heinezen
 Summary: Patches introduce changes at runtime
 
-[In our last blogpost]({filename}/blog/D0002-openage_mod_api_abilities.md) we talked about abilities, how they are used to define behavior of game entities and had a look at an initial declaration of a `Swordsman` unit. This time we are going to investigate how we alter the initial declaration at runtime through the use of `Patch`.
+[In our last blogpost]({filename}/blog/D0002-openage_mod_api_ability.md) we talked about abilities, how they are used to define behavior of game entities and had a look at an initial declaration of a `Swordsman` unit. This time we are going to investigate how we alter the initial declaration at runtime through the use of `Patch`.
 
 Other articles in the modding API series:
 
@@ -12,6 +12,7 @@ Other articles in the modding API series:
 * [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
 * [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 * Patching (you're here)
+* [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
 
 # Motivation
 
