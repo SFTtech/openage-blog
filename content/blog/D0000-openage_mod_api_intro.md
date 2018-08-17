@@ -12,6 +12,7 @@ Other articles in the modding API series:
 * [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
 * [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 * [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
+* [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
 
 # What is an API?
 
