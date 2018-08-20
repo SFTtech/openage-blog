@@ -13,6 +13,7 @@ Other articles in the modding API series:
 * [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 * [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
 * Attack (you're here)
+* [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
 
 # Damage calculation
 
@@ -43,7 +44,7 @@ Damage against Melee armor: 3 - 0 = 3
 Damage against Pierce armor: 5 - 4 = 1
 ```
 
-The situation for the `Crush` armor type is a bit more tricky because subtracting `armor_value` from `damage` would result in a negative value. This behavior is generally undesirable as negative damage can have weird effects. Therefore, the engine will always round negative damage against an arnor type up to `0`.
+The situation for the `Crush` armor type is a bit more tricky because subtracting `armor_value` from `damage` would result in a negative value. This behavior is generally undesirable as negative damage can have weird effects. Therefore, the engine will always round negative damage against an armor type up to `0`.
 
 ```
 Damage against Crush armor: 1 - 5 = -4 --> rounded up to 0
@@ -81,7 +82,7 @@ The data for attacking with projectiles is partioned between the `ProjectileAtta
 
 # Questions?
 
-Although behavior for abilities like `Attack` is hardcoded in an engine fuction, the execution outcome should be allowed to deviate slightly. Preferrably we would want a way to define behavior edge cases have an influence on the calculation, e.g. when we attack with a height advantage. How that is handled is discussed next week, when we take a look at `Bonus` objects.
+Although behavior for abilities like `Attack` is hardcoded in an engine function, the execution outcome should be allowed to deviate slightly. Preferrably we would want a way to define behavior edge cases have an influence on the calculation, e.g. when we attack with a height advantage. How that is handled is discussed next week, when we take a look at `Bonus` objects.
 
 Any more questions? Let us know and discuss those ideas by visiting [our subreddit /r/openage](https://reddit.com/r/openage)!
 

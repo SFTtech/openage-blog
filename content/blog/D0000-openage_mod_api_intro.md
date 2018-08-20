@@ -13,6 +13,7 @@ Other articles in the modding API series:
 * [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
 * [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
 * [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
+* [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
 
 # What is an API?
 
