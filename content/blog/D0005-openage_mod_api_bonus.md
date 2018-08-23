@@ -25,7 +25,7 @@ An example for this is the elevation factor in the damage calculation in AoE2. W
 
 On an implementation level, `Ability` and `Bonus` are quite similar. Every `Bonus` provides a link to behavior hardcoded in the engine. The key difference however, is the purpose they are used for:
 
-* Abilities define **general behavior** of a `GameEntiity`.
+* Abilities define **general behavior** of a `GameEntity`.
 * Boni apply under **certain conditions** or in **certain situations**. They are not limited to `GameEntity`.
 
 So unlike abilities, which are usually always available to a unit, a bonus requires a condition to be fulfilled or a situation to occur. Then and only then do they have an impact on the game.
@@ -40,7 +40,7 @@ Until now we've only talked about boni in the context of (damage) modifiers. In 
 
 While AoE2 has some applications for boni, it really are its successors Age of Mythology and Rise of Nations who make them an integral part of the game. In AoM relics can provide very unique boni, ranging from cheaper upgrades to automatically producing units for the player at the temple. RoN offers the player boni for building wonders and harvesting unique resources. These mechanics could act as a blueprint on what boni will be implemented into the API by us over time.
 
-It is important to note that `Bonus` is **not** the same as what the Age of Empires community colloquially refers to as *attack bonus* or *civilization bonus*. Most of these are not conditional and only change data. For this purpose, nyan patching is suited much better.
+It is important to note that `Bonus` is **not** the same as what the Age of Empires community colloquially refers to as *attack bonus* or *civilization bonus*. Most of these are not conditional and only change data. For these cases of application, nyan patching is suited much better.
 
 # Unconditional Bonus
 
