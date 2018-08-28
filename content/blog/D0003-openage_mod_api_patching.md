@@ -14,6 +14,7 @@ Other articles in the modding API series:
 * Patching (you're here)
 * [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
 * [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
+* [Inventory System]({filename}/blog/D0006-openage_mod_api_inventory.md)
 
 # Motivation
 
