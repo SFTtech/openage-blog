@@ -8,13 +8,14 @@ Our topic for today is the `Inventory` ability which allows units to store items
 
 Other articles in the modding API series:
 
-* [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
-* [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
-* [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
-* [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
-* [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
-* [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
-* Inventory System (you're here)
+1. [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
+2. [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
+3. [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
+4. [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
+5. [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
+6. [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
+7. Inventory System (you're here)
+8. [Too many villagers!]({filename}/blog/D0007-openage_mod_api_villager.md)
 
 # Inventory
 

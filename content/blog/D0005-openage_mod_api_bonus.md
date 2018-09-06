@@ -8,13 +8,14 @@ So far the only customization option we discussed were abilities. However, there
 
 Other articles in the modding API series:
 
-* [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
-* [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
-* [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
-* [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
-* [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
-* Bonus (you're here)
-* [Inventory System]({filename}/blog/D0006-openage_mod_api_inventory.md)
+1. [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
+2. [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
+3. [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
+4. [Patching]({filename}/blog/D0003-openage_mod_api_patching.md)
+5. [Attack]({filename}/blog/D0004-openage_mod_api_attack.md)
+6. Bonus (you're here)
+7. [Inventory System]({filename}/blog/D0006-openage_mod_api_inventory.md)
+8. [Too many villagers!]({filename}/blog/D0007-openage_mod_api_villager.md)
 
 # Motivation
 
