@@ -16,6 +16,7 @@ Other articles in the modding API series:
 6. [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
 7. [Inventory System]({filename}/blog/D0006-openage_mod_api_inventory.md)
 8. [Too many villagers!]({filename}/blog/D0007-openage_mod_api_villager.md)
+9. [Transform]({filename}/blog/D0008-openage_mod_api_transform.md)
 
 # Motivation
 

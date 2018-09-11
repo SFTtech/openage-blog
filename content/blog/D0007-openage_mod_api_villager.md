@@ -16,6 +16,7 @@ Other articles in the modding API series:
 6. [Bonus]({filename}/blog/D0005-openage_mod_api_bonus.md)
 7. [Inventory System]({filename}/blog/D0006-openage_mod_api_inventory.md)
 8. Too many villagers! (you're here)
+9. [Transform]({filename}/blog/D0008-openage_mod_api_transform.md)
 
 # Divide..
 
@@ -31,7 +32,7 @@ This system works fine for military units, but creates trouble for villagers bec
 
 When we look at the game data in more detail, we see that the villager is not the only unit that is handled like this. Monks and trade carts are also units that have more than one unit defined in the original game data to make them support more animations, although the villager is the most extreme example.
 
-While this implementation certainly works for Age of Empires, there are several reasons why this design is not great. First of all, it adds a lot of redundancy just to change some of the animations. Values for HP, speed and other stats stay exactly the same for each unit, yet have to be redefined twenty-two times in the game data. Secondly, the ingame transitions between the villager types need to be hardcoded in the engine. This would likely mean that we would have to restrict modders that use the openage API to a specfific number of resources and gathering types, which is an unexceptable requirement for us. Finally, replacing different villager units at runtime "on-the-fly" is prone to consistency problems. In openage, units can be more individual than in the Genie Engine and it is very difficult to keep this individuality when replacing them. Ideally we would want the *Action*s and alternative animations to be part of a single villager unit.
+While this implementation certainly works for Age of Empires, there are several reasons why this design is not great. First of all, it adds a lot of redundancy just to change some of the animations. Values for HP, speed and other stats stay exactly the same for each unit, yet have to be redefined twenty-two times in the game data. Secondly, the ingame transitions between the villager types need to be hardcoded in the engine. This would likely mean that we would have to restrict modders that use the openage API to a specfific number of resources and gathering types, which is an unacceptable requirement for us. Finally, replacing different villager units at runtime "on-the-fly" is prone to consistency problems. In openage, units can be more individual than in the Genie Engine and it is very difficult to keep this individuality when replacing them. Ideally we would want the *Action*s and alternative animations to be part of a single villager unit.
 
 # .. and Conquer
 
