@@ -17,6 +17,7 @@ Other articles in the modding API series:
 7. Inventory System (you're here)
 8. [Too many villagers!]({filename}/blog/D0007-openage_mod_api_villager.md)
 9. [Transform]({filename}/blog/D0008-openage_mod_api_transform.md)
+10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 
 # Inventory
 
