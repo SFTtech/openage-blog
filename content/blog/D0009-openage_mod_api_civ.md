@@ -18,6 +18,7 @@ Other articles in the modding API series:
 8. [Too many villagers!]({filename}/blog/D0007-openage_mod_api_villager.md)
 9. [Transform]({filename}/blog/D0008-openage_mod_api_transform.md)
 10. Civilizations (you're here)
+11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
 # Initial requirements
 
