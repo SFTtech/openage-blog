@@ -6,6 +6,8 @@ Summary: Renewable resources in openage with farming as an example
 
 Food takes quite an unusual role in the AoE economy as its main harvesting source from the mid-game onwards - the farm - is a *renewable* resource spot. Other than the natural resources that are generated with the map, the farming economy relies on the constant reconstruction of the production building by the player. In this blogpost we will explain how resource spots can be restocked in openage and also how we implement the process of queueing farms in the mill.
 
+Other articles in the modding API series:
+
 1. [Introduction]({filename}/blog/D0000-openage_mod_api_intro.md)
 2. [Units, Buildings & more]({filename}/blog/D0001-openage_mod_api_game_entity.md)
 3. [Abilities]({filename}/blog/D0002-openage_mod_api_ability.md)
