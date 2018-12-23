@@ -40,7 +40,7 @@ While this implementation certainly works for Age of Empires, there are several 
 
 Our first advantage is that game entities in the openage API are not limited to five animated abilities. Therefore, we can assign all of the 11 villager-specific actions directly to one unit without much effort. However, we also need a way to include the related move, idle, die and decay animations that the individual villager units had for each type of *Action*. We can do so with the `CommonAnimationOverride` object.
 
-![CAO object API]({filename}/images/D0007-cao-common.png)
+![CAO object API]({static}/images/D0007-cao-common.png)
 
 `CommonAnimationOverride` is an API object that any `Abiliy` can inherit from. By doing this, the unit's default animations from the `Move`, `Idle`, `Die` and `Decay` abilities will be temporarily overriden with the ones from `CommonAnimationOverride` until:
 
@@ -49,17 +49,17 @@ Our first advantage is that game entities in the openage API are not limited to 
 
 In practice this means an ability can indicate it wants to temporarily replace the animations of the four "common" abilities mentioned above. The example below shows how this would look for the villager ability `Forage`.
 
-![CAO Forage Example]({filename}/images/D0007-cao-common-example.png)
+![CAO Forage Example]({static}/images/D0007-cao-common-example.png)
 
 It is important to note that inheriting from `CommonAnimationOverride` is entirely optional and all abilities should generally work fine without being of this type. It is also not limited to typical villager abilities like `Gather`, `Build` or `Repair`. For example, another unit that can make use of it is the trade cart with its `Trade` ability. In fact, any ability is allowed to inherit `CommonAnimationOverride`, even though it doesn't make sense for all of them.
 
 # More alternative animations
 
-![Carry animations example]({filename}/images/D0007-cao-carry-villagers.png)
+![Carry animations example]({static}/images/D0007-cao-carry-villagers.png)
 
 Having `CommonAnimationOverride` is still not enough because all gathering abilities have second alternative animations for `Move` and `Idle`. These are used as *carrying* animations and replace their default counterparts as soon as the amount of resources carried by the villager exceeds 20% of their resource capacity. The way we can handle this is very similar in its mechanics to `CommonAnimationOverride`: We just inherit from a second API override object called `CarryAnimationOverride`.
 
-![Carry animation override]({filename}/images/D0007-cao-carry.png)
+![Carry animation override]({static}/images/D0007-cao-carry.png)
 
 By inheriting from `CarryAnimationOverride`, an ability is able to provide alternative animations for `Move` and `Idle`. The alternative animations replace the default ones when the carried resource amount passes the `carry_threshold` which should be a floating point number between 0 and 1, indicating the percentage at which the threshold is reached. It only works with abilities that make a game entity carry something, so it is best suited to be used with `Gather`, `Transport`, `ProvideGarrison` and `Inventory`. Even though it is not an ability, `InventoryItem` is be allowed to inherit from it, too. This makes it possible for items like the relic to give a unit a unique carry animation.
 
@@ -69,7 +69,7 @@ By inheriting from `CarryAnimationOverride`, an ability is able to provide alter
 
 So far we've only seen how abilities activate alternative animations, but we haven't covered how animations change depending on a villager's gender. It turns out this actually sounds harder than it is because in AoE2 genders are decided at creation time and don't change after that. Well, at least they don't by gathering and building. This means we can simply patch in the animation set for each gender before the unit is created. We do so by utilizing a so called `Variant` of the unit.
 
-![Variants]({filename}/images/D0007-variants.png)
+![Variants]({static}/images/D0007-variants.png)
 
 A `Variant` object contains a number of patches that are applied to the unit on creation. Which variant is chosen depends on the type of the `Variant` objects. A `RandomVariant` has a chance to be chosen at random (which perfectly fits for our villagers), while `PerspectiveVariant` depends on the angle the game entity is viewed. The latter variants are particularly useful for walls which have to cover up to 8 different angles. Other variant types could be introduced by us later, if there's a demand.
 

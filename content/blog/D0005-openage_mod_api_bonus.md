@@ -37,7 +37,7 @@ So unlike abilities, which are usually always available to a unit, a bonus requi
 
 Taking the previous example about elevation the process for handling a bonus would roughly look like this: On execution of the `Attack` ability the engine checks if the units has any corresponding boni assigned. After that it checks whether the conditions of these boni apply. If they apply, the values in the engine function's calculation are modified accordingly.
 
-![Bonus and objects that use it]({filename}/images/D0005-bonus.png)
+![Bonus and objects that use it]({static}/images/D0005-bonus.png)
 
 Each `GameEntity` can have an unlimited number of boni assigned in the `boni` member. Other objects, like `Civilization` or `Cheat`, are also allowed to store boni.
 

@@ -30,7 +30,7 @@ The way AoE2 handles its precious stone thrower is by defining the two forms, *p
 
 Before we consider the openage API definition, we should discuss how we would want transformations to work in general. Fortunately, there are already existing models that we can use for that purpose in the form of *finite-state machines*. A finite-state machine is defined by a finite number of states, which are equal to what we have called forms until now, and the transitions - the equivalent of transformations - between them. Each state is further defined by the abilities and transitions that are available when the machine reaches it. Ideally, we would want our game entities to also be finite-state machines. We will go through an example to clarify what this means exactly. However, to explain the topic properly we need something more complex than an Autobot or a trebuchet: A vending machine.
 
-![Vending machine 1]({filename}/images/D0008-automaton-1.png)
+![Vending machine 1]({static}/images/D0008-automaton-1.png)
 
 The vending machine that is shown here is defined by a finite-state machine with the three states `s_0`, `s_1`, `s_2` (depicted as nodes) and various transitions between them (depicted as arrows). `s_0` (marked with a double outline) is the starting state that we assume the machine is in when a customer would approach it. Abilities available in a specific state are visible next to the corresponding node in a blue colored font. The total number of abilities the machine has can be seen in the upper left. Only a subset of them is active in each state.
 
@@ -40,7 +40,7 @@ Vending machines are a pretty good example case where finite-state machines are 
 
 Note that the depicted vending machine always allows us to go back to the starting state `s_0` from any other state. There are even multiple pathways of transitions that accomplish this. However, this is not necessarily the case for all finite-state machines. We can show this with a simple extension.
 
-![Vending machine 2]({filename}/images/D0008-automaton-2.png)
+![Vending machine 2]({static}/images/D0008-automaton-2.png)
 
 This new version of the vending machine offers one new ability `Break` and a new state `s_e` (changes are colored red). `Break` is available in every state except `s_e`. The practical implications of this are that if our vending machine "breaks" in any of these states, the machine will transition to the error state `s_e` and is only able to execute `ShowError`. `s_e` is a dead-end as there is no transition that gets us back to a previous state anymore.
 
@@ -48,7 +48,7 @@ Dead-end states are not limited to errors in their use cases. They could just as
 
 So far we discussed finite-state machines where every state is reachable from `s_0` and the whole state graph is interconnected. This does not always have to be the case.
 
-![Vending machine 3]({filename}/images/D0008-automaton-3.png)
+![Vending machine 3]({static}/images/D0008-automaton-3.png)
 
 We again introduced new states `s_3` and `s_4` and some new abilities which would qualify for some kind of "maintainance mode". In our example, it would make sense for these abilities to be completely unavailable from "customer mode" (especially `EjectMoney`) and therefore have the state machine offer no transition to any of these states. Only an authorized person should have access to them. But how would they be able to reach these states?
 
@@ -56,21 +56,21 @@ The obvious answer is to use *outside measures* which add a transition at runtim
 
 Going back to our vending machine, an example for such an outside measure would be a keycard that is slotted into the machine. Similar to an `InventoryItem`, this keycard would enable two additional abilities `EnterMaint.` (for `s_0`) and `LeaveMaint.` (for `s_3`) that transition between `s_0` and `s_3` (depicted as dashed red arrows).
 
-![Vending machine 4]({filename}/images/D0008-automaton-4.png)
+![Vending machine 4]({static}/images/D0008-automaton-4.png)
 
 # API definition
 
-![Transform API]({filename}/images/D0008-transform-api.png)
+![Transform API]({static}/images/D0008-transform-api.png)
 
 Finally, we are going to look at the API definition of finite-state machines in openage. There are two core abilities that accomplish this, `Transform` and `TransformTo`. `Transform` is the ability that enables a `GameEntity` to be a state machine. It stores all the the possible states of the game entity and the startig state as `initial_state`. `TransformTo` on the other hand is meant as a transitional ability which can be used to get into another state. It does so by defining a `target_state` that must point to a state from `states` in `Transform`. It also defines the time the transition takes (`transition_time`) as well as the sprites used during the transition with `TransformProgress` objects. After the transition time has passed, the game entity will switch to the target state.
 
-![Trebuchet API example]({filename}/images/D0008-transform-trebuchet-example.png)
+![Trebuchet API example]({static}/images/D0008-transform-trebuchet-example.png)
 
 If we would model the trebuchet in our API, we would need one `Transform` abilitiy and two transitional `TransformTo` abilities for our state machine. The transitional abilities change the current state to `Packed` or `Unpacked`. Both of the states are defined in the set `states` from `Transform` as instances of `TransformState`.
 
 All of the abilities referenced in the defined states are also stored in the `abilities` attribute of the `Trebuchet` game entity. This allows them to be easily accessible when we want to patch them, even if they are not enabled in the unit's current state.
 
-![Trebuchet API example]({filename}/images/D0008-transform-trebuchet-automaton.png)
+![Trebuchet API example]({static}/images/D0008-transform-trebuchet-automaton.png)
 
 ## Improvements?
 

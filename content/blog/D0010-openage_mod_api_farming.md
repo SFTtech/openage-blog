@@ -24,7 +24,7 @@ Other articles in the modding API series:
 
 Before go into detail about the concrete API implementation, we should make clear how the farming economy from AoE2 works on an abstract level. For that purpose we prepared a simple diagram.
 
-![Farming BPMN](images/D0010-farm-bpmn.svg)
+![Farming BPMN]({static}/images/D0010-farm-bpmn.svg)
 
 Note that we leave out unimportant aspects such as delivering food to a drop site or deleting the building. We focus solely on the standard life cycle of the farm. A stylized hand indicates that the task is initiated by the player through the GUI, while tasks with a stylized person are automatically executed by a villager.
 
@@ -49,7 +49,7 @@ With this in mind, we can now look at the API implementation.
 
 ## Restock
 
-![Restock API object](images/D0010-restock-api.png)
+![Restock API object]({static}/images/D0010-restock-api.png)
 
 There are two abilities involved in the restocking process. On the left side we have the ability `Harvestable` of the farm, which contains the `ResourceSpot` that villagers can gather from. Villagers get the `Restock` ability with which they can fill up the resources again.
 
@@ -63,7 +63,7 @@ When we implement our `Restock` ability for the resource spot of AoE2 farms, we 
 
 First of all, the farm queue does not exactly represent buildings. It is probably closer to a "I can rebuild my farm"-ticket for the villager. Secondly, these tickets are available to all villagers and are not tied to a specific mill. They can be used from everywhere on the map on a first-come, first-serve basis. If you think about it, these tickets work like the other four resources in the game, with the exception that they cannot be gathered by the villagers. Thus, we are going to interpret the elements in the queue as actual resources. We will introduce a fifth `Resource` called `FarmRestockResource` which will work exactly like `Food`, `Wood`, `Gold` and `Stone`.
 
-![TradeResource API](images/D0010-trade-resource-api.png)
+![TradeResource API]({static}/images/D0010-trade-resource-api.png)
 
 Since `FarmRestock` will probably not be gatherable on the map (although that is possible), we have to find another way to acquire it. For that purpose, we can use the `TradeResource` ability which is also used for selling and buying with the market. In the context of farming, the mill will get a `TradeResource` ability which sells 60 units of `Wood` for 1 unit of `FarmRestockResource`. We can then set `auto_cost` in the villager's `Restock` ability to 1 unit of `FarmRestockResource` which is therfore consumed whenever a villager automatically restocks a farm.
 

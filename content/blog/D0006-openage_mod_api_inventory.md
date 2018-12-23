@@ -22,7 +22,7 @@ Other articles in the modding API series:
 
 # Inventory
 
-![Inventory ability]({filename}/images/D0006-inventory.png)
+![Inventory ability]({static}/images/D0006-inventory.png)
 
 The abilities for inventory management are `PickupItem`, `DropItem`, `TranferItem` and `Inventory`. The first three of these abilities interact with items in and out of the inventory, while the actual inventory is defined by an ability that is just called `Inventory`. An inventory's definition is determined by a list of `InventoryItem`s stored in the `allowed_items` attribute. Note that `InventoryItem` is different from `Item` and has a different purpose:
 
@@ -36,7 +36,7 @@ By keeping `Item` and `InventoryItem` as separate API objects, we also have more
 
 # A closer look at InventoryItem
 
-![InventoryItem examples]({filename}/images/D0006-inventory-example.png)
+![InventoryItem examples]({static}/images/D0006-inventory-example.png)
 
 The effects of `InventoryItem` that we briefly touched a few paragraphs before are the following: First of all, `InventoryItem` can grant a variable number of boni to the inventory owner through the `boni` set attribute. In addition to this, `InventoryItem` is allowed to take away units' abilities (through `disable_abilities`) and add entirely new ones (through `enable_abilities`). This means that a unit's abilities - like `Attack` - can potentially be swapped for better (or worse) versions of the ability.
 

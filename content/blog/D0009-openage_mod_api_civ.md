@@ -110,7 +110,7 @@ The question that remains is whether this system still allows for easy modding. 
 
 ## API description
 
-![Civilization API]({filename}/images/D0009-civ-api.png)
+![Civilization API]({static}/images/D0009-civ-api.png)
 
 All of a civilization's individual properties are handled by the `Civilization` API object. `Civilization` defines various attributes for its name and ingame help, the names of civilization leaders and its starting resources. `boni` is meant for civilization specific `Bonus` objects that are not bound to game entities or techs, such as the vietnamese bonus that reveals the starting positions of enemy players on the map. Everything concerning uniqueness of the civilization is handled by three patch bundles `civ_setup`, `graphics_set` and `team_setup`. They will be applied in the "0th step" we mentioned previously.
 
