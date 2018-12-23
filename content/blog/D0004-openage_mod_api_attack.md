@@ -22,13 +22,13 @@ Other articles in the modding API series:
 
 # Damage calculation
 
-![Attack]({filename}/images/D0004-attack-defense.png)
+![Attack]({static}/images/D0004-attack-defense.png)
 
 In the current API design, damage is dealt as a flat amount and is always directed against a specific type of armor. A single `Attack` can damage several armor types at once through the definition of `ArmorAttack` objects in the `damage` member. Every `ArmorAttack` stores the damage done against a type of armor. On execution of the attack, each damage value from `ArmorAttack` the objects of the attacker is matched against a defender's `ArmorDefense` object with the same armor type. 
 
 It's best if we look at a simple example before explaining the system further.
 
-![Attack Example]({filename}/images/D0004-attack-example.png)
+![Attack Example]({static}/images/D0004-attack-example.png)
 
 **armor_type** | **damage** | **armor_value**
 ---------------|------------|----------------
@@ -73,13 +73,13 @@ At runtime there can be situations where the damage is modified further, e.g. be
 
 # Other types of Attack
 
-![Other Attack types]({filename}/images/D0004-attack-special.png)
+![Other Attack types]({static}/images/D0004-attack-special.png)
 
 In addition to the normal `Attack` ability, the API supports three more special versions of attacking. `AreaAttack` does area of effect damage with an optional damage dropoff over distance. The `SelfDestruct` ability is an even more special `AreaAttack` where the unit kills itself during the attack. With `RangedAttack` the attacking unit can attack from a specified distance and does not have to stand right next to the target. `RangedAttack` must not be confused with `ProjectileAttack`, since the former does not require any projectile related data.
 
 ## Shooting projectiles
 
-![ProjectileAttack]({filename}/images/D0004-attack-projectile.png)
+![ProjectileAttack]({static}/images/D0004-attack-projectile.png)
 
 The first striking difference between `Attack` and `ProjectileAttack` is that they are not directly related (other than the previous "special" versions of `Attack`). This is rooted in the fact that `ProjectileAttack` merely enables a unit to fire one or more projectiles. Each projectile can have its own `Attack` ability that is executed on hit. In other words: The units with `ProjectileAttack` are not doing damage, it's the projectiles they shoot.
 

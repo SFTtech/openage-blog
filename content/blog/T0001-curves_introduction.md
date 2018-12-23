@@ -39,7 +39,7 @@ A curve is a collection of
 
 The curve is visualized in the below image, whereby tha ball is flying in different directions.
 
-![Curve Graph]({filename}/images/T0001-timeline.png)
+![Curve Graph]({static}/images/T0001-timeline.png)
 
 containing for example the path of an object on the map over the time from 0 to 750ms.
 What we see there is the list of keyframes to describe the position of an object, going from middle to right to left and back playing ping-pong.

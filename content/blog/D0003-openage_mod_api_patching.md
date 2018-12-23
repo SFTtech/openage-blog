@@ -48,7 +48,7 @@ This alternative patch would set `speed` to `2.0` when it is applied.
 
 As stated before, the declaration of a patch does not define in what situation it is applied. However, there are API objects that cover the most common situations, e.g. `Tech` and `Mod`.
 
-![Tech and Mod]({filename}/images/D0003-tech-mod.png)
+![Tech and Mod]({static}/images/D0003-tech-mod.png)
 
 `Tech` objects represent technologies that have to be researched by a `GameEntity` with the `Research` ability. The member `upgrades` stores a set of patches that are the effects the technology has on the player's units. Patches of `Tech` are applied as soon as the game entity has finished researching the technology.
 

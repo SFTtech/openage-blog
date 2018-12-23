@@ -22,7 +22,7 @@ Other articles in the modding API series:
 
 # GameEntity
 
-![GameEntity]({filename}/images/D0001-game-entity-overview.png)
+![GameEntity]({static}/images/D0001-game-entity-overview.png)
 
 Everything that *visibly exists* and *independently operates* in the simulated game world can be modelled with the `GameEntity` API object. This classification includes almost everything that moves, stands around or generally does things on the map. Projectiles are an exception because they need a `GameEntity`, e.g. a unit, to be spawned, thus violating the *independent* property. They also have some special features that differentiate them from `GameEntity`. These will be discussed in another blogpost dedicated to ranged attacks.
 
@@ -52,7 +52,7 @@ Example: relic
 
 ## Building
 
-![Building]({filename}/images/D0001-building.png)
+![Building]({static}/images/D0001-building.png)
 
 Buildings are more sophisticated than the othere three categories because they have to be constructed first and need space on the map grid. Each `Building` can have construction and damage stages that are defined in a `Progress` object. `Progress` objects allow buildings to display an alternative sprite after a certain percentage of *something* is complete. The number of stages is unlimited and theoretically a building could have 100 stages of construction that each have their own graphic.
 
