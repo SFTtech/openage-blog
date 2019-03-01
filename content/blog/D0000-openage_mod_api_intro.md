@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # What is an API?
 
 As you probably all know, openage is not just one game. It is intended to be a fully functional game engine that provides a *framework* for multiple RTS games. Because any game developer can start working the engine and we cannot anticipate how they want to use it, it wouldn't be smart to have every tiny bit of game logic hardcoded. Instead, the engine should only implement general behavior and provide an *interface* for game developers. That's where the API comes into place.

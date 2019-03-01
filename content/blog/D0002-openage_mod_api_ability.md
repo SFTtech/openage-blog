@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # The Ability API object
 
 ![Ability examples]({static}/images/D0002-abilities-overview.png)

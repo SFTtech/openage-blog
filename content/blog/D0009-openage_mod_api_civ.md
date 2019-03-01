@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. Civilizations (you're here)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Initial requirements
 
 Throughout the history of strategy games, a lot of different ways to implement civilizations have evolved. In some games factions distinguish themselves only by a difference in unit stats, e.g. in *Empire Earth*, while others make them entirely unique (*Starcraft* being a prime example) with individual units, techs and strategies built around them. The *Age of Empires* series occupies some kind of middle ground in which each civilization uses a subset of a shared tech tree in addition to a few economic and military boni for each civ. Of course, other strategy games introduced many related flavors for their faction systems that come with their own quirks.

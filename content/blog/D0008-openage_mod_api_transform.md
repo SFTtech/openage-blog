@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Generalizing the problem
 
 What the little example from the Introduction shows us is that despite the uniqueness of the trebuchet in comparison to AoE2's units, the concept of units that have several forms, which give access to different abilities, is far from uncommon. This means there is a good chance that we can generalize the behavior of units that have multiple forms and use this generalization for the trebuchet, instead of having to hardcode specific behavior for just one unit.

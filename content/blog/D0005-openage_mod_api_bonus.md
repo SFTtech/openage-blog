@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Motivation
 
 As establihed previously, each `Ability` in the API is linked to an engine function where its behavior is defined. On the one hand this is a benefit because we know exactly what a unit can do when we give it the ability. On the other hand there could be an ingame situation where we want the ability to do something slightly different, an *edge case* so to speak.
