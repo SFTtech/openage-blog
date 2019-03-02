@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Motivation
 
 Most RTS games let players increase the stats of units in one form or another, usually by researching technologies, levelling or giving items to them. Technology heavy games like AoE2 even allow units to upgrade multiple times, e.g. the *Miltia* unit which can be improved up to four times. One of the easiest methods to accomplish this is by replacing the old unit with an upgraded version that has better stats. For example, the *Man-At-Arms upgrade* in AoE2 switches all *Militia* units with *Man-At-Arms*. While handling upgrades like this is easy, it creates some problems:

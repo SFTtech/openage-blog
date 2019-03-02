@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Divide..
 
 Before we actually start working on the redundancy problem, we have to find out why the game data defines so many villagers. Obviously, Ensemble did not intend to make their units play football matches, [did they](https://www.youtube.com/watch?v=NHEFPENBV-s)\*? As it turns out, the game contains this many villagers because units in AoE2 are only able to have five animated abilities.

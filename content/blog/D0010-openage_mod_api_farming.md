@@ -20,6 +20,8 @@ Other articles in the modding API series:
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. Restocking farms (you're here)
 
+[View all articles]({filename}/blog/landing_page.md)
+
 # Preliminary analysis
 
 Before go into detail about the concrete API implementation, we should make clear how the farming economy from AoE2 works on an abstract level. For that purpose we prepared a simple diagram.

@@ -4,6 +4,14 @@ Tags: overview
 Authors: everyone
 Summary: Landing page for all blog articles
 
+# Curve Logic
+
+1. [Curves Logic Introduction]({filename}/blog/T0001-curves_introduction.md)
+
+# Nyan roadmap
+
+1. [nyan API integration]({filename}/blog/T0000-nyan_introduction.md)
+2. [Curve and nyan roadmap]({filename}/blog/T0002-nyan_and_curve_roadmap.md)
 
 # Modding API
 
@@ -18,4 +26,6 @@ Summary: Landing page for all blog articles
 9. [Transform]({filename}/blog/D0008-openage_mod_api_transform.md)
 10. [Civilizations]({filename}/blog/D0009-openage_mod_api_civ.md)
 11. [Restocking farms]({filename}/blog/D0010-openage_mod_api_farming.md)
-12. [Effects]({filename}/blog/D0012-openage_mod_api_effects.md)
+12. [Intermission I]({filename}/blog/D0011-openage_mod_api_updates.md)
+13. [Effects]({filename}/blog/D0012-openage_mod_api_effects.md)
+14. [Diplomatic Stances]({filename}/blog/D0013-openage_mod_api_diplo_stance.md)
