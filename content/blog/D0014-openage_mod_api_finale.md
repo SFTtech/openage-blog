@@ -38,7 +38,7 @@ Effects in the API are just as modular as our ability and modifier system. Any u
 **Techs and civ bonuses affect more diplomatic stances**<br/>
 In AoE, your civ choice grants bonuses to the whole team. But what if your enemies would profit too? In our API, civs are allowed to define modifiers for other players that have a different stance than "friendly". Additionally, techs can influence not only yourself, but also others on the same map. Abilities and effects are also allowed to be limited to specific diplomatic stances which enables more specialized diplomacy such as overlord-vassal relationships.
 
-These are the most prominent features that we support. There are a lot of other helpful features that were either too small or too complex to mention. Be sure to check out our [previous blogpost]({filename}/blog/landing_page.md) if you are interested in more thorough explanations of the underlying mechanics.
+These are the most prominent features that we support. There are a lot of other helpful features that were either too small or too complex to mention. Be sure to check out our [previous blogposts]({filename}/blog/landing_page.md) if you are interested in more thorough explanations of the underlying mechanics.
 
 ## What happens next?
 
