@@ -6,7 +6,7 @@ Summary: We look back at our API changes and summarize the new features
 
 Over the last year, we have introduced a lot of features to our API and spent a lot of time polishing and improving its core concepts. But as an old Chinese saying goes: "You have to let go, otherwise you will never finish the converter and jj will be unhappy". So today, we finally present you the first release version of the *openage Modding API* tree and will talk a little bit about the features that come with it.
 
-We present you the result of hours of thought and discussions:
+We present you the result of hours of thought and discussions **(Open picture in new tab to enlarge)**:
 
 ![modding API tree v0.2]({static}/images/D0014-API-tree-0.2.svg)
 
@@ -24,7 +24,7 @@ Every ingame object, whether it is a unit, a building or part of the ambient sce
 * Let relics research special techs and fight in combat
 
 **Nonlinear tech trees**<br/>
-Techs can be unlocked through alternative paths and are not necessarily bound to Age Upgrades. The upgrade path can be different for every civilization or game mode. It alsos allow giving players the choice to select one out of two (or more) upgrades for a unit, e.g. a decision between more attack damage and faster reload speed.
+Techs can be unlocked through alternative paths and are not necessarily bound to Age Upgrades. The upgrade path can be different for every civilization or game mode. It also allows giving players the choice to select one out of two (or more) upgrades for a unit, e.g. a decision between more attack damage and faster reload speed.
 
 **Proper inventories and item systems**<br/>
 Relics will no longer replace the monk unit when picked up. Instead, the API unifies garrisoning, transporting and inventories with a new container system that give units the ability to store other game entities properly. Items and garrisoned units are allowed to grant new abilities or remove existing ones.
