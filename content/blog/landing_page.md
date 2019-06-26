@@ -29,4 +29,4 @@ Summary: Landing page for all blog articles
 12. [Intermission I]({filename}/blog/D0011-openage_mod_api_updates.md)
 13. [Effects]({filename}/blog/D0012-openage_mod_api_effects.md)
 14. [Diplomatic Stances]({filename}/blog/D0013-openage_mod_api_diplo_stance.md)
-14. [Finale]({filename}/blog/D0014-openage_mod_api_finale.md)
+15. [Finale]({filename}/blog/D0014-openage_mod_api_finale.md)
