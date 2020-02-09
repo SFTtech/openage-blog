@@ -10,7 +10,7 @@ import tempfile
 from distutils.dir_util import copy_tree
 from subprocess import run
 
-DESTINATION_DIR = "/srv/http/blog.openage"
+DESTINATION_DIR = "/srv/http/openage.blog"
 
 
 def main():
