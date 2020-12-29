@@ -102,6 +102,11 @@ li {
 	margin-bottom: 1px;
 }
 
+.paginator {
+	clear: both;
+	margin-top: 1em;
+}
+
 .readmore { float: right }
 
 dl {margin: 0 0 1.5em 0;}
@@ -479,10 +484,9 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #posts-list .hentry {padding-left: 10px; position: relative;}
 
 #posts-list footer {
-	left: 10px;
 	position: relative;
+	top: -0.5em;
 	float: left;
-	top: 0.5em;
 	width: 190px;
 	margin-right: 2em;
 }
