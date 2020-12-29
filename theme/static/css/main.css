@@ -136,6 +136,10 @@ pre {
 }
 
 .linenodiv pre {
+	font-family: Consolas, Monaco, Andale Mono, monospace;
+	line-height: 1.5;
+	font-size: 13px;
+
 	background-color: #222228;
 	color: #888;
 	text-align: right;
