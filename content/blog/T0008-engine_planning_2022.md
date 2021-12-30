@@ -1,111 +1,237 @@
 Title: Engine Core Modules
-Date: 2021-12-15
+Date: 2021-12-29
 Tags: roadmap, gamestate, renderer, presenter, curves
 Authors: jj, heinezen
 Summary: our next steps for creating the engine core modules
 
-- last year we talked about the gamestate implementation
-- this year, we have to implement everything else
-- how hard could that be, right?
+Hello everyone,
+
+It's time for another status report. Our [blogpost from last year]({filename}/blog/T0007-new_gamestate.md)
+and the subsequent [talk at rC3](https://www.youtube.com/watch?v=2YG1sK4_SsU) dealt with the general handling
+of game data with nyan and our modding API. This year, we focussed on implementing the actual gamestate
+that actually does something with the data... and also everything else necessary to make it usable from in front
+of your screen. And how hard could that be, right?
 
 ## Current state
 
-- Actual gamestate is a small part of the engine
-- Other modules (see figure)
-    - Eventsystem: Tracks events in the game that result in something happening
-    - Renderer: Shows whats happening on the screen
-    - Presenter: Receives user inputs and forwards/translates them to the engine
-    - (Networking: Receives network inputs and forwards them to the engine)
-- For creating a game, all of them have to be coupled
+![Engine Core Modules]({static}/images/T0008-engine-core-modules.png)
 
-## Recap: Calculating the gamestate
+While the gamestate is integral for getting the gameplay mechanics of the engine to work, other core modules
+are equally important for getting things to work. More precisely, the gamestate module really just runs the
+simulation of the game world. It takes events and handles them based on certain rules (i.e. gameplay). However,
+it is not concerned with user inputs or outputs. That's what the other modules are for:
 
-- Those who followed our blogposts about the modding API already know how the several gamepay elements will be addressed
-- Short summary as a refresher:
-    - Ingame units have so-called abilities
-    - Abilities are traits that define what a unit does (e.g. move, attack, gather), is (e.g. selectable) or has (e.g. attributes like HP)
-    - In the game data, ability objects store the necessary data for using the ability, e.g. movement speed
-    - In the engine, the ability is associated with a gameplay system that, when called, takes the data and does an action, e.g. move the unit from A to B
+- **Eventsystem**: Manages and tracks events in the engine and ensures that they are properly ordered (the latter is important for receiving network events).
+- **Renderer**: Shows what's happening in the game on your screen. It receives positional information and graphic assets from the gamestate and decides when and how to display them.
+- **Presenter**: Despite its name, it's not only used to "present" things, but also for receiving user inputs. The presenter module manages local user input and output for everything that is not graphics. For example, it translates all the key presses and mouse clicks to game events.
+- **Networking**: Receives network packages for a multiplayer game and feeds them into the local simulation, i.e. the gamestate and eventsystem modules.
 
-## From gameplay systems to gameplay mechanics
+For creating a functional (multiplayer) game, all of these modules have to work together in some way. In openage,
+the core modules will be *loosely* coupled, i.e. we try to minimize their dependencies on each other. We do
+this on the one hand to allow for flexibility for extensions or changes in the future, possibly preparing the engine
+for low-level modding. On the other hand, we hope the loose coupling keeps the code maintainable and prevents
+the engine from evolving into a giant spaghetti monster.
 
-- This sounds easy enough until you realize that this does not yet suffice for the complex gameplay mechanics that you find in AoE2
-- An action is very easy to model, but most gameplay mechanics are multi-stage activity
-- Take the gathering mechanic in AoE2 for example
-    - Let me break it down for you
-    1. The player commands the villager to a resource (beginning of the task)
-    2. the villager moves to the resource (Move ability)
-    3. the villager starts gathering the resource (Gather ability)
-        - the villager stops gathering on a specific breakout condition, i.e. its resource is full
-    4. villager locates a resource dropsite (DropSite ability)
-    5. villager moves to a resource dropsite (Move ability)
-    6. start again at 2.
-- this activity for a relatively "simple" mechanic can already get reasonably complex
-- can even result in branching paths
-- things also might happen in parallel
 
-- these types of mechanics are common in RTS games
-- typically all tasks that involve movement are like this
-- "hardcode everything": not an option
+## Gamestate: How we do ingame things (Recap)
 
-- Solution: activity system using a node graph
-- node graph described the flow for the activity
-    - node can be any action (move, gather, attack)
-    - path to next chosen based on event, e.g. resource storage is full
-    - branching paths with nodes that check conditions
-- node graph can be the same for every unit of a unit type, e.g. villager
-    - activity flow is always the same
-    - at runtime, the unit only needs to know the node that is currently active and the events that trigger the choosing of paths
-    - behavior of unit is controlled by following the activity flow in the node graph
+For those still unfamiliar with our game data handling, I recommend the [rC3 talk](https://www.youtube.com/watch?v=2YG1sK4_SsU)
+again which goes much more into detail about this. For everyone else, here's a quick refresher on how the general
+workflow.
 
-- since engine is event-based, this can be easibly modelled
-- events are registered on curves
-- entity manager calls activity system when a new activity event happens
-- when a unit reaches a new node in the flow graph
-    - starts the associated gameplay system
-    - register events for advancing to next node
-- this way, complete behavior can be encapsuled in a giant flow graph, but stays simple enough to be expandable
+![Gather system]({static}/images/T0008-gather-ability.png)
+
+Ingame units have so-called *abilities* which define what they can do (e.g. move, attack, gather), what they are (e.g. selectable)
+or what traits they have (e.g. attributes like HP). Abilities are assigned to a unit by adding the associated `Ability`
+object to the unit definition in the modpack data. The `Ability` object also stores all necessary data related to that ability, e.g. a
+gather rate for the `Gather` ability.
+
+In the engine, every `Ability` object is associated with a gameplay system that can be accessed by unit instances with
+the assigned ability. This system uses the data from the object, e.g. for `Gather` the gather rate, to execute an action.
+In the case of a `Gather` ability, the action would be that the villager's resource storage is increased while the
+targeted resource spot's resources are decreased in accordance with the gather rate value stored in the object.
+
+## Gamestate 2: Do many things and do them right
+
+So far so good. In this basic model, every ability has coresponding gameplay system which, when used, handles the
+necessary calculation to do the associated gameplay action. However, a challenge that needs to addressed is that
+most gameplay mechanics in AoE (and RTS in general) are cannot be modelled as one single action. More precisely,
+gameplay mechanics often involve action *routines* that are executed in order. For example, an infantry attack
+in AoE2 actually involves at least two actions
+
+1. Move to the target
+2. Attack the target
+
+These routines can also be much more complex. Take the the gathering mechanic in AoE2 for example, which we will
+break down for you.
+
+![Gather mechanic (AoE2)]({static}/images/T0008-gather-mechanic-viz.png)
+
+1. The player commands the villager to a resource (beginning of the task)
+2. Villager moves to the resource spot (Move action)
+    - this action continues until the villager arrived at the resource spot
+3. Villager starts gathering the resource (Gather action)
+    - this action continues until the villager's resource storage is full
+4. Search for a resource dropsite (technically not an action, but important for the routine)
+5. Villager moves to a resource dropsite (Move action)
+6. Villager deposits the gathered resource at the resource dropsite (DropResources action)
+7. Start again at step 2.
+
+As you can see, these routines can get quite complex. In this example, we have actions that
+end on a condition (step 2 and 3), intermediate steps (step 4) and even a loop (step 7). Mechanics
+might also have branching paths based on certain conditions, e.g. a farm is only reseeded if
+the player has enough resources. Other actions, such as health regeneration, might also happen
+in parallel.
+
+The solution we chose for this problem is to use flow graphs for handling these complex mechanics
+(or *activities* as they are called by us). We take advantage of the event-driven nature of our
+gamestate implementation here. Starting, ending (or cancelling) an action may be initiated by an
+event. With the help of flow graphs, we can additionally define follow-up actions by mapping the
+events *ending* an action to the *start* of another action. How this would look like can be seen
+below.
+
+![Gather flow graph (AoE2)]({static}/images/T0008-gather-mechanic-flow.png)
+
+Every action can be represented as a node in the directed flow graph. When a node is *visited*,
+the associated action is taken, i.e. the gameplay system executes. Paths between the nodes
+are mapped to events. The unit - in this case the villager - registers and listens for events that would
+make its activity advance from its current node to the next node. For example, if the current node is
+step 3, the villager would listen for the event that its resource strage is full. When the event
+fires, the activity advances to the next node and the next action is taken. Although not depicted
+here, a node may have several outgoing paths that each map to a different action.
+
+The nice thing about this solution is that it allows for sophosticated control over the flow of actions,
+while also being reasonably efficient in terms of memory and computation. The flow graph only
+has to be defined once for every unit type. Sometimes the flow graph for an activity could even be the same
+for entire classes of units, e.g. the AoE2 attack mechanics which uses the same flow for almost every
+military unit. At runtime, the unit only needs to store its current node in the flow graph and
+the events it listens for. Advancing to the next action is a simple lookup for the next node, using
+the received event.
+
 
 ## Renderer
 
-- Renderer is stuffed by gamestate with animations
-- displays animation on screen
+In theory, the renderer module has a simple task. It gets handed animation IDs and positional
+arguments by the gamestate and draws them on the screen. openage, like AoE2 and other Genie Engine games,
+uses a 2D renderer, so animations are sequences of 2D images (sprites).
 
-- challenges comes from the fact that rendered animations color pixels depending on game data
-- example: player color depends on player ID (or a color blind setting)
-- renderer needs to know how to handle these special pixels
+However, in practice the sprites are actually more than plain images. In AoE games, some of
+the pixels in a sprite are "special" and are used to convey gameplay information. For example,
+pixels can be marked as *player colors* or as an *outline*. How these pixels are displayed
+depends on the associated gameplay information, e.g. the player ID. This situation imposes
+two questions for us that we have to address. First of all, we need a way to mark the special
+pixels, so that the renderer knows they exits. Secondly, the renderer needs to know how to
+transform the special pixel into a color using the gameplay information.
 
-- In the animation, these pixels are marked with a command bit
-- pixel color RGBA => 32 Bit = 8R8G8G8A
-- openage uses the last bit in the alpha channel as flag for a special draw command
-- if bit is 0 (i.e. alpha value is even), use a custom shader
-    - RGB channels (24 Bit) can be used as a command payload (e.g. a palette index)
-- that leaves modders with 128 regular alpha values for normal draw commands and 128 potential commands
+We solve the first problem by encoding special pixels in the pixel data itself. Sprites
+for openage are stored in PNGs using the 32 Bit RGBA format, where every color channel (red,
+green, blue and alpha) is 8 Bit wide and thus can have 256 possible values.
 
-- In the engine, the renderer receives animation and all "associated data" from gamestate (usually by system that starts an animated action)
-- associated data can be an anchr point for example (if the animated entity is a moving unit)
-- but can be anything from the gamestate, e.g. player ID of the unit
-- engine will have a lookup table that defines what data it sends the renderer
+```
+PNG 32 Bit RGBA
 
-## Game Control
+11001100  10101010  00001111  11111111
+--------  --------  --------  --------
+^         ^         ^         ^
+Red       Green     Blue      Alpha
+```
 
-- input events from peripherals have to be translated to game events
-- e.g. commands for units
-- usually also follows a mapping (hotkeys etc.)
-- separation of ingame and outgame events
-    - ingame: units, player factions (as concepts in the game), the game world
-    - outgame: command queue, input events from the player/person in front of the screen
+To mark our special pixels, we change the interpretation of the alpha channel slightly. Instead
+of the last bit in the sequence being part of the alpha channel, we will use it as a flag
+that indicates whether the pixel requires special processing.
 
-- define what outgame players can do ingame via a "Controller"
-    - what they have control over (which ingame faction)
-    - how their inputs should be translated to ingame events (hotkeys)
-- Controller is a gateway to the gamestate
-    - basic access control: ensures that player can only control units that are assigned to them
-    - translation of inputs to ingame events is separated from gameplay
-    - can be changed at runtime without affecting game (exchange human player with AI player)
-    - also: switching control of ingame factions is easy, whch is useful for debugging
-- Controllers will not only be used for human players
-    - AI, networking, scripting will communicate with gamestate using controllers
-    - all theoretically will have the same capabilities as humans
-    - gateway could be generic enough that all kinds of outgame input types can be modelled
-    - potentially interesting for AI developers or scripters who like to have a lot of control over ingame events
+```
+openage 31 Bit RGBA + marker bit (color)
+
+11001100  10101010  00001111  1111111  1
+--------  --------  --------  -------  -
+^         ^         ^         ^        ^
+Red       Green     Blue      Alpha    marker bit
+```
+
+If the last bit is `1`, the pixel is treated as a normal color and directly copied into
+the drawing buffer. If it is `0`, then the remaining 7 bits of alpha channel are
+interpreted as an index for a special *draw command*. The 24 Bit of the RGB channels
+may be used as a payload to store additional information such as palette IDs. Based on
+the command index, the GPU can choose the corresponding code path to draw the special pixel.
+
+```
+openage 31 Bit RGBA + marker bit (command)
+
+00000000  00000000  00000000  1111111  0
+--------  --------  --------  -------  -
+^         ^         ^         ^        ^
+Red       Green     Blue      Alpha    marker bit
+```
+
+This effectively leaves us with 128 usable alpha values for normal colors and 128 assignable
+draw commands.
+
+Now we need to tell the renderer, or rather the GPU, how to handle these commands. We do this
+by letting the renderer assign custom shader code chunk to each command index. At load-time, the
+renderer assembles the code chunks for all commands into the final fragment shader that is
+uploaded to the GPU. This also means that commands can potentially be different for each game
+or modpack by redefining the shader code for a command.
+
+For every command, we can define "associated gameplay data" that should be sent by the gamestate alongside
+the animation ID. For example, this can be the ID of the owner of a unit (to determine the player color).
+The information on how to find this data is stored in the engine's indexing system at runtime.
+When a system in the gamestate sends an animation request to the renderer, it will also look
+up all associated data using the information in the indexing system and attach it to the request.
+
+![Rendered sprite]({static}/images/T0008-renderer-sprite.gif)
+
+(The final rendering result after processing all pixels. Red pixels are player color commands, green pixels
+are outline comands.)
+
+## Presenter: Game Control
+
+To make games running on the engine playable by actual people, we have to translate the input
+events from the player's peripherals to events usable for the game simulation. As stated in
+our introduction, this is part of the presenter module's responsibility. The presenter manages the
+peripherals as well as their configuration.
+
+However, mapping input events to game events is not the only relevant task. Game control is also
+about the separation of concerns, specifically between *ingame* and *outgame* control information.
+An example for ingame control information is the command queue of a unit. This type of information
+is directly relevant for the game simulation as it affects the behaviour of units in the game world.
+On the other hand, outgame information is everything that mostly concerns the person in front
+of the screen, but does not affect the game world on its own. Example for this are the input devices of a player,
+the layout of the UI, but also control *concepts* like a selection queue for units. Outgame information
+can be used to influence the game simulation, but it should not be required to run it.
+
+So, what's the point of having a separation of concerns here? Our main motivation is to generalize
+the interface to the game simulation, so that it is not limited to human players. In RTS games,
+humans are not the only actors that can exercise control. Possible actors could be an AI, a script, or
+a dedicated server in a multiplayer game. The outgame information (and outgame control) these actors
+posess can be very different, yet they should all be able to control the ingame information in
+their own way. Especially the AI should not be limited to pesky human control methods.
+
+![Controller structure]({static}/images/T0008-controller.png)
+
+Part of the solution to this problem is our model of a controller. A `Controller` object is
+a link between the game simulation and the outgame control methods. The main purpose of a
+controller in this regard is to define the level of access control an outgame actor has over
+ingame information. For example, a controller may define that a human player has control
+over an ingame faction with a specific ID. It can also define the permissions the actor
+has when accessing the ingame information. A spectator may only have "view" access to
+an ingame faction, while the acting player of said faction has "view" and "action" access.
+A nice benefit of handling access control like this is that we can easily switch control
+of ingame factions by modifying or replacing the controller, which may be useful for debugging.
+
+The second job of the controller is to map input events from the presenter to ingame
+events for the game simulation. In this regard, the controller acts as an interface between the
+gamestate and presenter modules. The important thing is that the controller merely does
+the mapping and does not care about the input devices. That way, all kinds of input events
+can be translated to the game simulation, whether they come from physical devices, an AI,
+a script, or a network socket.
+
+## Questions
+
+Do you have something to discuss? Visit [our subreddit /r/openage](https://reddit.com/r/openage) or pass by in **[our forum](https://openage.discourse.group/)**!
+
+And you can reach us directly in the dev chatroom:
+
+* Matrix: `#sfttech:matrix.org`
+* IRC: `#sfttech` on freenode.net
+
