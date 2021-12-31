@@ -86,6 +86,6 @@ Any more questions? Let us know and discuss those ideas by visiting [our subredd
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat
 
 \* The sport depicted is obviously not **foot**ball because the monks never use their feet. It actually is a special form of [gridiron](https://en.wikipedia.org/wiki/Gridiron_football) which tries to make up for the lack of feet by making the rules more complicated and running more commercials.

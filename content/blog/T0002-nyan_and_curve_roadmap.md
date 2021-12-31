@@ -62,4 +62,4 @@ Do you have something to discuss? Visit [our subreddit /r/openage](https://reddi
 And you can reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

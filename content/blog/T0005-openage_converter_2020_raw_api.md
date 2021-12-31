@@ -95,4 +95,4 @@ If you have any questions regarding this blogpost or you are eager to help devel
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

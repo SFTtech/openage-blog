@@ -61,4 +61,4 @@ Do you still have questions? Then let us know and discuss them with us and the c
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat
