@@ -14,7 +14,7 @@ of your screen. And how hard could that be, right?
 
 ## Current state
 
-![Engine Core Modules]({static}/images/T0008-engine-core-modules.png)
+![Engine Core Modules]({static}/images/T0008-engine-core-modules.svg)
 
 While the gamestate is integral for getting the gameplay mechanics of the engine to work, other core modules
 are equally important for getting things to work. More precisely, the gamestate module really just runs the
@@ -35,11 +35,9 @@ the engine from evolving into a giant spaghetti monster.
 
 ## Gamestate: How we do ingame things (Recap)
 
-For those still unfamiliar with our game data handling, I recommend the [rC3 talk](https://www.youtube.com/watch?v=2YG1sK4_SsU)
+For those still unfamiliar with our game data handling, we recommend the [rC3 talk](https://www.youtube.com/watch?v=2YG1sK4_SsU)
 again which goes much more into detail about this. For everyone else, here's a quick refresher on how the general
 workflow.
-
-![Gather system]({static}/images/T0008-gather-ability.png)
 
 Ingame units have so-called *abilities* which define what they can do (e.g. move, attack, gather), what they are (e.g. selectable)
 or what traits they have (e.g. attributes like HP). Abilities are assigned to a unit by adding the associated `Ability`
@@ -90,7 +88,7 @@ event. With the help of flow graphs, we can additionally define follow-up action
 events *ending* an action to the *start* of another action. How this would look like can be seen
 below.
 
-![Gather flow graph (AoE2)]({static}/images/T0008-gather-mechanic-flow.png)
+![Gather flow graph (AoE2)]({static}/images/T0008-gather-mechanic-flow.svg)
 
 Every action can be represented as a node in the directed flow graph. When a node is *visited*,
 the associated action is taken, i.e. the gameplay system executes. Paths between the nodes
@@ -207,7 +205,7 @@ a dedicated server in a multiplayer game. The outgame information (and outgame c
 posess can be very different, yet they should all be able to control the ingame information in
 their own way. Especially the AI should not be limited to pesky human control methods.
 
-![Controller structure]({static}/images/T0008-controller.png)
+![Controller structure]({static}/images/T0008-controller.svg)
 
 Part of the solution to this problem is our model of a controller. A `Controller` object is
 a link between the game simulation and the outgame control methods. The main purpose of a
