@@ -119,9 +119,9 @@ We appreciate the extra help :-)
 
 ## Contact
 
-If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our forum](https://openage.discourse.group/)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
+If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our discussion board](https://github.com/SFTtech/openage/discussions)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
 
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

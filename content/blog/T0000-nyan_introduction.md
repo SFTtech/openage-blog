@@ -189,4 +189,4 @@ Wanna discuss those ideas? Visit [our subreddit /r/openage](https://reddit.com/r
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

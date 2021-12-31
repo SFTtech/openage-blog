@@ -95,9 +95,9 @@ Now that we have prepared the data for conversion, we can finally start to trans
 The series will continue soon with another blogpost about the converter. Next time we will start to look at
 the most important step in the conversion process: the nyan object creation.
 
-If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our forum](https://openage.discourse.group/)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
+If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our discussion board](https://github.com/SFTtech/openage/discussions)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
 
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

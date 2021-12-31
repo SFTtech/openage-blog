@@ -55,10 +55,10 @@ nobody wants to read long blogposts all the time, am I right? :D
 
 ## Questions
 
-Do you have something to discuss? Visit [our subreddit /r/openage](https://reddit.com/r/openage) or pass by in **[our forum](https://openage.discourse.group/)**!
+Do you have something to discuss? Visit [our subreddit /r/openage](https://reddit.com/r/openage) or pass by in **[our discussion board](https://github.com/SFTtech/openage/discussions)**!
 
 And you can reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat
 

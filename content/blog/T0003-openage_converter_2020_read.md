@@ -89,9 +89,9 @@ Not only is this object-oriented approach much easier to work with, we also no l
 
 That's it for now. We will continue next time when we transform data from the older AoE-like structure to the openage API.
 
-If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our forum](https://openage.discourse.group/)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
+If you have any questions regarding this blogpost or you are eager to help developing openage make sure to pass by in **[our discussion board](https://github.com/SFTtech/openage/discussions)**. You can also check the weekly development news on [our subreddit](https://reddit.com/r/openage)!
 
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat

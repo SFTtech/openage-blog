@@ -121,4 +121,4 @@ Until then feel free to ask questions and discuss the blogpost in [our subreddit
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat
