@@ -100,4 +100,4 @@ Any more questions? Let us know and discuss those ideas by visiting [our subredd
 As always, if you want to reach us directly in the dev chatroom:
 
 * Matrix: `#sfttech:matrix.org`
-* IRC: `#sfttech` on freenode.net
+* IRC: `#sfttech` on libera.chat
