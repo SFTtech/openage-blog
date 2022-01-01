@@ -8,7 +8,7 @@ Hello everyone,
 
 It's time for another status report. Our [blogpost from last year]({filename}/blog/T0007-new_gamestate.md)
 and the subsequent [talk at rC3](https://www.youtube.com/watch?v=2YG1sK4_SsU) dealt with the general handling
-of game data with nyan and our modding API. This year, we focussed on implementing the parts of the engine
+of game data with nyan and our modding API. This year, we focused on implementing the parts of the engine
 that actually do something with the data... and also everything else necessary to make it usable. And how hard
 could that be, right?
 
@@ -38,7 +38,7 @@ the engine from evolving into a giant spaghetti monster.
 
 For those still unfamiliar with our game data handling, we recommend the [rC3 talk](https://www.youtube.com/watch?v=2YG1sK4_SsU)
 again which goes much more into detail about this. For everyone else, here's a quick refresher on how the general
-workflow.
+workflow operates.
 
 Ingame units have so-called *abilities* which define what they can do (e.g. move, attack, gather), what they are (e.g. selectable)
 or what traits they have (e.g. attributes like HP). Abilities are assigned to a unit by adding the associated `Ability`
@@ -52,8 +52,8 @@ increased by the gather rate value, while the targeted resource spot's resources
 
 ## Gamestate 2: Do many things and do them right
 
-So far so good. In this basic model, every ability has coresponding gameplay system which, when used, handles the
-necessary calculation to do the associated gameplay action. However, something that needs to addressed is that
+So far so good. In this basic model, every ability has a corresponding gameplay system which, when used, handles the
+necessary calculation to do the associated gameplay action. However, something that needs to be addressed is that
 most gameplay mechanics in AoE (and RTS in general) can often not be modelled as one single action. More precisely,
 gameplay mechanics often involve action *routines* that are executed in order. For example, an infantry attack
 in AoE2 actually involves at least two actions:
@@ -61,7 +61,7 @@ in AoE2 actually involves at least two actions:
 1. Move to the target
 2. Attack the target
 
-These routines can also be much more complex. Take the the gathering mechanic in AoE2 for example, which we will
+These routines can also be much more complex. Take the gathering mechanic in AoE2 for example, which we will
 break down for you.
 
 ![Gather mechanic (AoE2)]({static}/images/T0008-gather-mechanic-viz.png)
@@ -105,7 +105,7 @@ while also being reasonably efficient in terms of memory and computation. The fl
 has to be defined once for every unit type. Sometimes the flow graph for an activity can be the same
 for an entire class of units. For example, the AoE2 attack mechanics would use the same flow across every
 military unit. At runtime, the unit only needs to know its current node in the activity's flow graph as well as
-the events it needs listens for. Advancing to the next action is a simple lookup for the next node, using
+the events it needs to listen for. Advancing to the next action is a simple lookup for the next node, using
 the received event.
 
 
