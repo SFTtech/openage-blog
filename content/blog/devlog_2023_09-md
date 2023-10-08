@@ -1,0 +1,72 @@
+Title: Openage Development News: September 2023
+Date: 2023-10-07
+Tags: devlog, news, release
+Authors: heinezen
+Summary: Devlog from September 2023
+
+
+Hello and welcome to our monthly openage recap. This month involved a significant amount of work reviewing, fixing
+pre-release code, and then preparing the publishing of said release. Even if there's currently not much
+going on feature-wise, there's a lot happening in the development process.
+
+
+## Version 0.5.0 Release
+
+As some of you may have noticed, openage 0.5.0 has been released on [GitHub](https://github.com/SFTtech/openage/releases/tag/v0.5.0).
+It's the first major release in a while and we are very proud of what we pulled off. 0.5.0 introduces the new architecture
+and is something that we can easily improve and build on. Avid readers of the News posts should already know what's in the release,
+so we'll spare you the details. For everyone else, take a look at the release highlights.
+
+Let's just hope the next release won't take as long ;) *ahem*
+
+
+## What's coming for 0.6.0?
+
+We are not totally sure yet where to start with 0.6.0 and what exactly will be part of the next release. Right now, the
+consensus is that we try to improve on 0.5.0 and add more features that directly support gameplay, e.g.:
+
+- HUD rendering (or parts of it)
+- Proper unit selection
+- Collision & Pathfinding
+- Configurable inputs
+- Audio Support
+
+While implementing these, new gameplay features will probably be added in parallel depending on what we think is doable.
+
+Before we start thinking about new features though, we also have some project maintainance work to take care of.
+On our GitHub, we've already introduced new [project boards](https://github.com/SFTtech/openage/projects?query=is%3Aopen)
+to track the development progress. We're additionally planning to add a bunch of new beginner issues for new contributors,
+which also have their own [board](https://github.com/orgs/SFTtech/projects/15). Furthermore, the should be a bugfix release
+coming soon that addresses a few compilation errors and engine startup problems.
+
+
+## Legacy Code Cleanup
+
+While 0.5.0 in practice only uses the new architecture flow, most pre-0.5.0 legacy code has so far remained in the code base.
+We couldn't remove it previously because there were a giant amount of interdependencies in the legacy subsystems and removing
+them while also working on other parts of the engine would have been a nightmare. Now that 0.5.0 is out and running without
+relying on the old legacy subsystems, we can clean up what's left.
+
+Since release 0.5.0, we have started the process of removing the legacy code subsystem by subsystem (see [PR#1556](https://github.com/SFTtech/openage/pull/1550)).
+Currently, it looks like about ~40,000 lines will eventually be removed (compared to ~65,000 lines added for
+the new architecture). We have also identified some parts that are still salvagable and can be transferred to the
+new architecture such as:
+
+- Audio Manager (has to be ported from SDL to Qt)
+- Parts of the GUI (only needs new engine interface)
+- Some Game Logic (terrain generation, score calculation)
+
+
+## What's next?
+
+We will focus on cleanup tasks publishing fixes for the current release first. After that is done, we will pick a new feature
+to work on, probably something "simple" like unit selection. As always, you will learn about it next month at the latest!
+
+
+## Questions?
+
+Any more questions? Let us know and discuss those ideas by visiting [our subreddit /r/openage](https://reddit.com/r/openage)!
+
+As always, if you want to reach us directly in the dev chatroom:
+
+* Matrix: `#sfttech:matrix.org`
