@@ -28,7 +28,7 @@ From all of our API objects `GameEntity` saw the most drastic changes. Firstly, 
 
 Secondly, we introduced `GameEntityType` referenced by the member `types` which is a new object that can be used for a broader classification of game entities. A game entity can be of several `GameEntityType`s like `Infantry` or `Archer` or both. In comparison to the classes in AoE2, `GameEntityType` is **not** tied to armor and acts as an independent mechanism.
 
-Last but not least, we want to welcome `Projectile` as the fifth `GameEntity` category. In the [2. blogpost](https://blog.openage.dev/d1-openage-modding-api-units-buildings-more.html) we declared that `Projectile` should not be a `GameEntity` because it does not operate independently and always needs a *host unit* that shoots it. Howerever, we came to the conclusion that just because projectiles are dependent on their host in AoE2, this doesn't necessarily have to be the case in openage. Hence, the `Projectile` object has emancipated itself and can now be used for other things than attacking, e.g. converting, resource gathering, repairing and more.
+Last but not least, we want to welcome `Projectile` as the fifth `GameEntity` category. In the [2. blogpost]({filename}/blog/D0001-openage_mod_api_game_entity.md) we declared that `Projectile` should not be a `GameEntity` because it does not operate independently and always needs a *host unit* that shoots it. Howerever, we came to the conclusion that just because projectiles are dependent on their host in AoE2, this doesn't necessarily have to be the case in openage. Hence, the `Projectile` object has emancipated itself and can now be used for other things than attacking, e.g. converting, resource gathering, repairing and more.
 
 # Resource Contingents
 
