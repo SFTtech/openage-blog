@@ -1,6 +1,6 @@
 # openage blog
 
-https://blog.openage.sft.mx/
+https://blog.openage.dev/
 
 
 ### Licensing

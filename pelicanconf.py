@@ -20,8 +20,9 @@ DISPLAY_PAGES_ON_MENU = False
 THEME = "theme/"
 
 LINKS = (
-    ('openage', 'http://openage.sft.mx/'),
-    ('blog origin', 'https://github.com/SFTtech/openage-blog/'),
+    ('openage', 'https://openage.dev/'),
+    ('chat', 'https://matrix.to/#/#sfttech:matrix.org'),
+    ('blog source', 'https://github.com/SFTtech/openage-blog/'),
 )
 
 EXTLINKS = [
